@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Builds</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Custom PC Builds</h1>
+        
+        <a href="{{ url_for('create_build') }}" class="create-build-button">Create a New Build</a>
+        
+        <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+        
+        <table class="build-table">
+            <thead>
+                <tr>
+                    <th>Build ID</th>
+                    <th>CPU</th>
+                    <th>GPU</th>
+                    <th>RAM</th>
+                    <th>PSU</th>
+                    <th>Monitor</th>
+                    <th>Motherboard</th>
+                    <th>Storage</th>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for build in builds %}
+                <tr>
+                    <td>{{ build['build_id'] }}</td>
+                    <td>{{ build['cpu_id'] }}</td>
+                    <td>{{ build['gpu_id'] }}</td>
+                    <td>{{ build['ram_id'] }}</td>
+                    <td>{{ build['psu_id'] }}</td>
+                    <td>{{ build['mon_id'] }}</td>
+                    <td>{{ build['mb_id'] }}</td>
+                    <td>{{ build['str_id'] }}</td>
+                    <td>{{ build['total_price'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
